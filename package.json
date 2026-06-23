@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --poll=2000",
+    "dev": "node -e \"const fs=require('fs');const path=require('path');const dir='.angular/cache';if(fs.existsSync(dir)){fs.rmSync(dir,{recursive:true,force:true})}\" && ng serve --poll=2000",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
