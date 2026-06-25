@@ -1,19 +1,21 @@
 ﻿import { isPlatformBrowser } from '@angular/common';
 import { AfterViewInit, Component, Inject, OnDestroy, PLATFORM_ID } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
+  imports: [RouterLink, FormsModule],
   templateUrl: './home-page.component.html',
 })
 export class HomePageComponent implements AfterViewInit, OnDestroy {
   private readonly titleText = 'Accoladi | Infinite Possibilities';
-  private readonly legacyBodyClasses = ['modal-open', 'popup-page', 'drama-page', 'recruiter-page', 'teacher-page', 'finearts-page', 'story-page'];
+  private readonly legacyBodyClasses = ['popup-page', 'drama-page', 'recruiter-page', 'teacher-page', 'finearts-page', 'story-page'];
   private readonly cleanup: Array<() => void> = [];
   private scrollRevealObserver: IntersectionObserver | null = null;
   private reducedMotionQuery: MediaQueryList | null = null;
-
   constructor(
     @Inject(PLATFORM_ID) private readonly platformId: object,
     private readonly title: Title,
@@ -36,6 +38,13 @@ export class HomePageComponent implements AfterViewInit, OnDestroy {
       this.cleanup.length = 0;
       this.scrollRevealObserver?.disconnect();
       this.scrollRevealObserver = null;
+    }
+  }
+
+  onSearch(query: string, event?: Event): void {
+    event?.preventDefault();
+    if (!query.trim()) {
+      return;
     }
   }
 
@@ -65,7 +74,6 @@ export class HomePageComponent implements AfterViewInit, OnDestroy {
       menuToggle.setAttribute('aria-expanded', 'false');
       menuToggle.setAttribute('aria-label', 'Open navigation menu');
     };
-
     const revealHeroContent = () => {
       window.requestAnimationFrame(() => {
         revealElements.forEach((element) => element.classList.add('is-visible'));
@@ -138,7 +146,6 @@ export class HomePageComponent implements AfterViewInit, OnDestroy {
         closeMobileMenu();
       }
     };
-
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onResize);
     document.addEventListener('click', onDocumentClick);

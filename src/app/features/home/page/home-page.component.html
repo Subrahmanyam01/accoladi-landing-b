@@ -17,20 +17,16 @@
       <a href="#directors">Directors</a>
     </div>
 
-    <form class="nav-search" role="search" action="#" method="get">
+    <form class="nav-search" role="search" (ngSubmit)="onSearch(searchInput.value, $event)">
       <span class="nav-search-icon material-symbols-rounded" aria-hidden="true">search</span>
       <input
+        #searchInput
         type="search"
         name="q"
         placeholder="Search resources..."
         aria-label="Search resources"
       >
     </form>
-
-    <div class="nav-actions">
-      <a class="nav-signin" href="#signin">Sign In</a>
-      <a class="nav-register" href="#register">Register</a>
-    </div>
 
     <button
       class="menu-toggle"
@@ -50,8 +46,6 @@
       <a href="#educators">Educators</a>
       <a href="#recruiters">Recruiters</a>
       <a href="#directors">Directors</a>
-      <a href="#signin">Sign In</a>
-      <a class="nav-register" href="#register">Register</a>
     </div>
   </nav>
 </header>
@@ -106,7 +100,7 @@
               button: 'Create Your Profile',
               href: '/students/music',
               icon: 'music_note',
-              image: '/assets/card-images/music.jpg',
+              image: 'assets/card-images/music.jpg',
               position: 'center 18%',
             },
             {
@@ -115,7 +109,7 @@
               button: 'Create Your Profile',
               href: '/students/dance',
               icon: 'sports_gymnastics',
-              image: '/assets/card-images/dancer.png',
+              image: 'assets/card-images/dancer.png',
               position: 'center top',
             },
             {
@@ -124,7 +118,7 @@
               button: 'Create Your Profile',
               href: '/students/drama',
               icon: 'theater_comedy',
-              image: '/assets/card-images/drama.webp',
+              image: 'assets/card-images/drama.webp',
               position: 'center top',
             },
             {
@@ -133,7 +127,7 @@
               button: 'Search Students',
               href: '/recruiters',
               icon: 'groups',
-              image: '/assets/card-images/recruiter.jpg',
+              image: 'assets/card-images/recruiter.jpg',
               position: 'center center',
             },
             {
@@ -142,7 +136,7 @@
               button: 'Access Resources',
               href: '/educators/teachers',
               icon: 'school',
-              image: '/assets/card-images/teacher2.png',
+              image: 'assets/card-images/teacher2.png',
               position: 'center 20%',
             },
             {
@@ -151,7 +145,7 @@
               button: 'View Solutions',
               href: '/educators/fine-arts',
               icon: 'account_balance',
-              image: '/assets/card-images/finearts.png',
+              image: 'assets/card-images/finearts.png',
               position: 'center center',
             }
           ]; track card.title) {
@@ -174,7 +168,7 @@
                 </div>
 
                 <div class="home-card-actions">
-                  <a class="home-card-button" [href]="card.href">{{ card.button }}</a>
+                  <a class="home-card-button" [routerLink]="card.href">{{ card.button }}</a>
                 </div>
               </div>
             </article>
@@ -205,9 +199,9 @@
       </section>
 
       <section class="home-cta-row reveal-on-scroll" id="directors" aria-label="Primary links">
-        <a class="home-cta" href="/what">What We Do</a>
-        <a class="home-cta" href="/how">How We Do It</a>
-        <a class="home-cta" href="/why">Why We Do It</a>
+        <a class="home-cta" routerLink="/what">What We Do</a>
+        <a class="home-cta" routerLink="/how">How We Do It</a>
+        <a class="home-cta" routerLink="/why">Why We Do It</a>
       </section>
 
     </div>
@@ -223,7 +217,7 @@
         playsinline
         preload="metadata"
       >
-        <source src="/assets/hero-video.mp4" type="video/mp4">
+        <source src="assets/hero-video.mp4" type="video/mp4">
       </video>
       <div class="home-video-overlay" aria-hidden="true"></div>
     </section>
@@ -241,11 +235,12 @@
 
   <section class="testimonial-section" id="why" aria-labelledby="testimonialTitle">
     <div class="testimonial-shell reveal-on-scroll">
+      <!-- Fixed inline style background path -->
       <div
         class="testimonial-media"
         role="img"
         aria-label="Professional musician portrait"
-        style="--testimonial-bg: url('/assets/card-images/AJ-Neubert.png');"
+        style="--testimonial-bg: url('assets/card-images/AJ-Neubert.png');"
       ></div>
 
       <div class="testimonial-content">
@@ -260,4 +255,5 @@
       </div>
     </div>
   </section>
+
 </main>

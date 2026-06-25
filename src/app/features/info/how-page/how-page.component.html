@@ -12,7 +12,7 @@
       aria-labelledby="howModalTitle"
       aria-describedby="howModalStory"
     >
-      <a class="modal-close" href="/#home" data-close-how-modal aria-label="Close dialog">
+      <a class="modal-close" routerLink="/" data-close-how-modal aria-label="Close dialog">
         <span aria-hidden="true">&times;</span>
       </a>
 
@@ -55,26 +55,3 @@
       </div>
     </section>
   </div>
-<script>
-    (() => {
-      const modal = document.getElementById("howModal");
-      const closeTargets = document.querySelectorAll("[data-close-how-modal]");
-      const close = () => {
-        window.location.href = "/#home";
-      };
-
-      closeTargets.forEach((target) => {
-        target.addEventListener("click", (event) => {
-          event.preventDefault();
-          close();
-        });
-      });
-
-      window.addEventListener("keydown", (event) => {
-        if (event.key === "Escape" && modal?.classList.contains("is-open")) {
-          close();
-        }
-      });
-    })();
-  </script>
-

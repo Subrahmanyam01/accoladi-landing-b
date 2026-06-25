@@ -12,7 +12,7 @@
       aria-labelledby="whatModalTitle"
       aria-describedby="whatModalStory"
     >
-      <a class="modal-close" href="/#home" data-close-what-modal aria-label="Close dialog">
+      <a class="modal-close" routerLink="/" data-close-what-modal aria-label="Close dialog">
         <span aria-hidden="true">&times;</span>
       </a>
 
@@ -24,7 +24,7 @@
 
         <section class="what-modal-story" id="whatModalStory">
           <figure class="what-modal-visual" aria-label="What We Do image">
-            <img src="/assets/what/Asian%20Female%20Conductor.png" alt="Asian female conductor">
+            <img src="assets/what/Asian%20Female%20Conductor.png" alt="Asian female conductor">
           </figure>
 
           <div class="what-modal-copy">
@@ -45,26 +45,3 @@
       </div>
     </section>
   </div>
-<script>
-    (() => {
-      const modal = document.getElementById("whatModal");
-      const closeTargets = document.querySelectorAll("[data-close-what-modal]");
-      const close = () => {
-        window.location.href = "/#home";
-      };
-
-      closeTargets.forEach((target) => {
-        target.addEventListener("click", (event) => {
-          event.preventDefault();
-          close();
-        });
-      });
-
-      window.addEventListener("keydown", (event) => {
-        if (event.key === "Escape" && modal?.classList.contains("is-open")) {
-          close();
-        }
-      });
-    })();
-  </script>
-

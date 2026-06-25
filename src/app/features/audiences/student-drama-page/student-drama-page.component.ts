@@ -1,10 +1,12 @@
-﻿import { Component } from '@angular/core';
+import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 import { LegacyPageBase } from '../../../shared/legacy-page-base';
 
 @Component({
   selector: 'app-student-drama-page',
   standalone: true,
+  imports: [RouterLink],
   templateUrl: './student-drama-page.component.html',
 })
 export class StudentDramaPageComponent extends LegacyPageBase {

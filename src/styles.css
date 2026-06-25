@@ -290,35 +290,6 @@ button {
   margin-left: 6px;
 }
 
-.nav-signin {
-  color: #243040;
-  font-size: 0.92rem;
-  font-weight: 700;
-}
-
-.nav-register {
-  min-height: 34px;
-  padding: 0 18px;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  font-size: 0.92rem;
-  font-weight: 700;
-
-  color: #1d2530;
-  background: #f7c700;
-
-  border-radius: 10px;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
-}
-
-.nav-register:hover,
-.nav-register:focus-visible {
-  filter: brightness(0.98);
-}
-
 .menu-toggle {
   display: none;
 
@@ -2103,14 +2074,6 @@ main.home-page {
   display: none !important;
 }
 
-/* =========================
-   STUDENT MODALS
-========================= */
-
-body.modal-open {
-  overflow: hidden;
-}
-
 .modal-layer {
   position: fixed;
   inset: 0;
@@ -3797,6 +3760,19 @@ body.modal-open {
     border-radius: 12px;
     background: #f7f8fb;
     color: #243040;
+  }
+
+  .nav-menu button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 0;
+    background: #f7f8fb;
+    color: #243040;
+    text-align: left;
   }
 
   .home-shell {
